@@ -335,7 +335,92 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .tabs-container {
+                margin: 1rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.8rem;
+            }
+
+            .tab-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .command-list .position {
+                min-width: 180px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.4rem;
+            }
+
+            .tab-content {
+                padding: 1.5rem;
+            }
+
+            .tabs-nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .tab-button {
+                width: 100%;
+            }
+
+            .command-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .command-list .position {
+                min-width: 100%;
+            }
+
+            .command-list .rank {
+                margin: 0.5rem 0;
+            }
+
+            .recruitment .links {
+                flex-direction: column;
+            }
+
+            .recruitment .links a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .start-screen h1 {
+                font-size: 3rem;
+            }
+
+            .start-screen .subtitle {
+                font-size: 1.8rem;
+                margin-bottom: 3rem;
+            }
+
+            .enter-button {
+                padding: 1rem 2.5rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
             .hero-content h1 {
                 font-size: 2rem;
             }
@@ -344,13 +429,182 @@
                 font-size: 1.2rem;
             }
 
-            .section {
-                padding: 3rem 1rem;
+            .content h3 {
+                font-size: 1.6rem;
             }
 
-            .section h2 {
-                font-size: 2rem;
+            .content p {
+                font-size: 1rem;
             }
+
+            .phase, .company, .command-section {
+                padding: 1rem;
+            }
+
+            .phase h4, .company h4 {
+                font-size: 1.2rem;
+            }
+
+            .recruitment h3 {
+                font-size: 1.4rem;
+            }
+
+            .recruitment h4 {
+                font-size: 1.2rem;
+            }
+
+            .start-screen h1 {
+                font-size: 2.5rem;
+                padding: 0 1rem;
+            }
+
+            .start-screen .subtitle {
+                font-size: 1.4rem;
+                padding: 0 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .enter-button {
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                text-align: center;
+            }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) {
+            .tab-button:hover,
+            .command-list li:hover,
+            .phase:hover,
+            .company:hover,
+            .recruitment .links a:hover,
+            .footer-section a:hover {
+                transform: none;
+            }
+
+            .tab-button:active,
+            .command-list li:active,
+            .phase:active,
+            .company:active,
+            .recruitment .links a:active,
+            .footer-section a:active {
+                transform: scale(0.98);
+            }
+        }
+
+        /* High Resolution Screens */
+        @media (min-width: 1400px) {
+            .tabs-container {
+                max-width: 1400px;
+            }
+
+            .content img {
+                max-width: 1000px;
+            }
+        }
+
+        /* Ensure proper display on ultra-wide screens */
+        @media (min-width: 1920px) {
+            .tabs-container {
+                max-width: 1600px;
+            }
+        }
+
+        /* Fix for small height screens */
+        @media (max-height: 600px) {
+            .start-screen h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .start-screen .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+
+            .enter-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Ensure content is readable on very small devices */
+        @media (max-width: 320px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1rem;
+            }
+
+            .content h3 {
+                font-size: 1.4rem;
+            }
+
+            .tab-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Fix for devices with notches */
+        @supports (padding: env(safe-area-inset-top)) {
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+            }
+        }
+
+        /* Ensure proper display on foldable devices */
+        @media (hover: none) and (pointer: coarse) {
+            .tab-button, 
+            .recruitment .links a,
+            .footer-section a {
+                min-height: 44px; /* Minimum touch target size */
+            }
+        }
+
+        /* Add smooth scrolling for all devices */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Improve text rendering */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Ensure images don't overflow */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Ensure proper spacing on mobile */
+        .content {
+            padding: 1rem;
+        }
+
+        /* Fix for iOS input styling */
+        input, 
+        button {
+            -webkit-appearance: none;
+            border-radius: 8px;
         }
 
         /* Animations */
