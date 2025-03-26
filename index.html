@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JFKSWCS - John F. Kennedy Special Warfare Center and School</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                        url('https://i.postimg.cc/Nj54C0tT/JFKSWCS-prop.webp') center/cover fixed;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+                        url('https://i.postimg.cc/nLNcQSRQ/JFKSWCS-prop.png') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+            position: relative;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content .subtitle {
+            font-size: 2rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+            color: #ffd700;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 0;
+        }
+
+        /* Tabs */
+        .tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            padding: 0.5rem;
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 10px;
+        }
+
+        .tab-button {
+            background-color: transparent;
+            border: 2px solid #ffd700;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            color: #ffd700;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-button:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background-color: #ffd700;
+            color: #0a0a0a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            background-color: rgba(25, 25, 25, 0.95);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .section {
+            padding: 2rem;
+            background-color: white;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            font-size: 2.5rem;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Phases */
+        .phases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .phase {
+            background: rgba(40, 40, 40, 0.9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .phase:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .phase h4 {
+            color: #ffd700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .phase p {
+            color: #e0e0e0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Completion Info */
+        .completion-info {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        /* Rules */
+        .rules {
+            margin: 2rem 0;
+        }
+
+        .rules h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .rules ul {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+
+        .rules ul li {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .rules ul li:before {
+            content: "•";
+            color: #ffd700;
+            font-weight: bold;
+            position: absolute;
+            left: -1.5rem;
+        }
+
+        /* Info */
+        .info {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .info h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        /* Section Headers */
+        .section h3 {
+            color: #1a1a1a;
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+
+        .section h4 {
+            color: #1a1a1a;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-section a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-section a:hover {
+            color: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .footer-section i {
+            font-size: 20px;
+            color: #7289da;
+        }
+
+        .footer-bottom {
+            text-align: right;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .footer-bottom a:hover {
+            color: #ffd700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Companies */
+        .companies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .company {
+            background: rgba(40, 40, 40, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .company:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .company h4 {
+            color: #ffd700;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 0.8rem;
+        }
+
+        .company p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        /* Chain of Command */
+        .chain-of-command {
+            margin-top: 3rem;
+        }
+
+        .command-section {
+            background: rgba(40, 40, 40, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .command-section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .command-section h3 {
+            color: #ffd700;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .command-list {
+            list-style: none;
+        }
+
+        .command-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            background: rgba(50, 50, 50, 0.9);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .command-list li:hover {
+            background: rgba(60, 60, 60, 0.9);
+            transform: translateX(5px);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .command-list .position {
+            font-weight: 600;
+            color: #e0e0e0;
+            min-width: 220px;
+        }
+
+        .command-list .name {
+            color: #e0e0e0;
+        }
+
+        .command-list .rank {
+            color: #ffd700;
+            font-size: 0.9rem;
+            padding: 0.3rem 0.8rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            margin-right: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        /* Start Screen */
+        .start-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)),
+                        url('https://i.postimg.cc/nLNcQSRQ/JFKSWCS-prop.png') center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: all 0.5s ease-out;
+            box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.8);
+        }
+
+        .start-screen.fade-out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .start-screen h1 {
+            font-size: 4.5rem;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 3px;
+            font-weight: 800;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .start-screen .subtitle {
+            font-size: 2.5rem;
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 4rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .enter-button {
+            padding: 1.2rem 3.5rem;
+            font-size: 1.5rem;
+            background-color: transparent;
+            border: 3px solid #ffd700;
+            color: #ffd700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .enter-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: #ffd700;
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%) rotate(45deg) translateY(100%);
+            z-index: -1;
+        }
+
+        .enter-button:hover {
+            color: black;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .enter-button:hover::before {
+            transform: translate(-50%, -50%) rotate(45deg) translateY(0);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hide main content initially */
+        .main-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease-in;
+        }
+
+        .main-content.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Task Force Section */
+        .task-force {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(20, 20, 20, 0.9));
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .task-force img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .task-force h3 {
+            color: #ffd700;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .task-force p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .task-force .teams {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .task-force .team {
+            background: rgba(40, 40, 40, 0.9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .task-force .team:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .task-force .team h4 {
+            color: #ffd700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Content Headers */
+        .content h3 {
+            color: #ffd700;
+            font-size: 2rem;
+            margin: 2rem 0 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .content p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Recruitment Section */
+        .recruitment {
+            background: rgba(40, 40, 40, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .recruitment h3 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .recruitment h4 {
+            color: #ffd700;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .recruitment ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .recruitment ul li {
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .recruitment ul li::before {
+            content: "•";
+            color: #ffd700;
+            position: absolute;
+            left: 0;
+        }
+
+        .recruitment .positions {
+            margin-bottom: 1.5rem;
+        }
+
+        .recruitment .position {
+            color: #ffd700;
+            font-weight: 500;
+        }
+
+        .recruitment .links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .recruitment .links a {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .recruitment .links a:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Start Screen -->
+    <div class="start-screen">
+        <h1>Army Special Operations Command</h1>
+        <div class="subtitle">John F. Kennedy Special Warfare Center and School</div>
+        <button class="enter-button">Enter Website</button>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="main-content">
+        <main>
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-button active" data-tab="general">General Information</button>
+                    <button class="tab-button" data-tab="jfkcs">JFKCS</button>
+                    <button class="tab-button" data-tab="1st-swtg">1st SWTG</button>
+                    <button class="tab-button" data-tab="2nd-swtg">2nd SWTG</button>
+                    <button class="tab-button" data-tab="tfv">Task Force Viper</button>
+                </div>
+
+                <div id="general" class="tab-content active">
+                    <div class="content">
+                        <img src="https://i.postimg.cc/MZdNPfw9/JFK1.webp" alt="JFKSWCS Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                        <p>The John F. Kennedy Special Warfare Center and School - also known as JFKSWCS - provides the United States Army with the highest quality badge and leadership courses, such as the Ranger School or the Military Freefall Course.</p>
+                        <p>The John F. Kennedy Special Warfare Center and School prepares soldiers for advanced and specialized roles, whether that be a high attitude specialist or a pinpoint accurate marksman. JFKSWCS Instructors are the most prestigious in all of the United States Army, with only the best-becoming instructors in JFK, achieving the green beret.</p>
+
+                        <div class="chain-of-command">
+                            <h3>Chain of Command</h3>
+                            
+                            <div class="command-section">
+                                <h3>ASOC HICOM</h3>
+                                <ul class="command-list">
+                                    <li><span class="position">Commanding General:</span><span class="rank">[CG]</span><span class="name">Tvctical</span></li>
+                                    <li><span class="position">Deputy Commanding General:</span><span class="rank">[DCG]</span><span class="name">CowTyrant</span></li>
+                                    <li><span class="position">Command Sergeant Major:</span><span class="rank">[CSM]</span><span class="name">AliveMessi102</span></li>
+                                    <li><span class="position">Chief of Staff:</span><span class="name"><span class="rank">[CoS]</span><span class="name">NeroOvuh</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="command-section">
+                                <h3>John F. Kennedy HICOM</h3>
+                                <ul class="command-list">
+                                    <li><span class="position">Commanding Officer:</span><span class="rank">[CO]</span><span class="name">N/A</span></li>
+                                    <li><span class="position">Executive Officer:</span><span class="rank">[XO]</span><span class="name">FairwelIs</span></li>
+                                    <li><span class="position">Command Sergeant Major:</span><span class="rank">[CSM]</span><span class="name">inflixction</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="command-section">
+                                <h3>1st Special Warfare Training Group HICOM</h3>
+                                <ul class="command-list">
+                                    <li><span class="position">Group Commanding Officer:</span><span class="rank">[1SWTG-CO]</span><span class="name">PureRelief</span></li>
+                                    <li><span class="position">Group Executive Officer:</span><span class="rank">[1SWTG-XO]</span><span class="name">gabriel47494</span></li>
+                                    <li><span class="position">Group Sergeant Major:</span><span class="rank">[1SWTG-SM]</span><span class="name">rast0fx</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="command-section">
+                                <h3>2nd Special Warfare Training Group HICOM</h3>
+                                <ul class="command-list">
+                                    <li><span class="position">Group Commanding Officer:</span><span class="rank">[2SWTG-CO]</span><span class="name">"TFL" ACertain_Nobody</span></li>
+                                    <li><span class="position">Group Executive Officer:</span><span class="rank">[2SWTG-XO]</span><span class="name">"CTM" ZachW285</span></li>
+                                    <li><span class="position">Group Sergeant Major:</span><span class="rank">[2SWTG-SM]</span><span class="name">AstraeaXV</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="jfkcs" class="tab-content">
+                    <div class="content">
+                        <img src="https://i.postimg.cc/BQzkNkFh/Sans-titre-pdn-2.webp" alt="JFKCS Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                        <p>The John F. Kennedy Candidate School was designed to teach newly recruited personnel that are currently within the school learn more information that is primarily related to ASOC, JFKSWCS, and lastly Instructing. As well as testing each candidates knowledge.</p>
+                        
+                        <h3>Phases</h3>
+                        <div class="phases">
+                            <div class="phase">
+                                <h4>Phase 1</h4>
+                                <p>Here you will learn more information about ASOC, and JFKSWCS, as well as practicing airborne, and a PT session.</p>
+                            </div>
+                            <div class="phase">
+                                <h4>Phase 2</h4>
+                                <p>Contains all the information that is related to all courses and leadership courses JFKSWCS currently owns.</p>
+                            </div>
+                            <div class="phase">
+                                <h4>Phase 3</h4>
+                                <p>Here you will be taught the basics. This will help you understand JFKSWCS courses and standards. This phase consists of Basic Land Navigation, Basic Medical Training, and Wargames/Combat Training to enhance and see your overall capabilities to host and perform with efficiency.</p>
+                            </div>
+                            <div class="phase">
+                                <h4>Phase 4</h4>
+                                <p>Practice Inspection, this is where you will learn the new Parade Regulations, how an inspection is performed, and how to execute roles within an inspection properly and professionally.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="1st-swtg" class="tab-content">
+                    <div class="content">
+                        <img src="https://i.postimg.cc/nrPdH7cZ/1.webp" alt="1st SWTG Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                        <h3>1st Special Warfare Training Group</h3>
+                        <p>The 1st Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 1st Special Warfare Training Group handles some rudimentary US Army courses. this includes the Military Freefall Course, Pathfinder Badge Course, and the Expert Infantry Badge Qualification Course. The 1st Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
+
+                        <div class="recruitment">
+                            <h3>Available Positions</h3>
+                            <div class="positions">
+                                <p><span class="position">Senior Instructor (SI)</span> - E7</p>
+                                <p><span class="position">Instructor (INS)</span> - E6</p>
+                            </div>
+
+                            <h4>Requirements</h4>
+                            <ul>
+                                <li>E2+ for Enlisted positions</li>
+                                <li>E7+ for Officer positions</li>
+                                <li>Must have both Roblox and Discord 2FA enabled</li>
+                                <li>Some kind of experience hosting phases/tryouts</li>
+                                <li>Relatively clean USAR career</li>
+                                <li>Able to be harsh in hosting and uphold the highest standards</li>
+                                <li>Tolerable grammar</li>
+                                <li>Has access to PC</li>
+                                <li>Willing to serve a minimum of 2 weeks before discharging</li>
+                                <li>Not blacklisted from JFKSWCS or ASOC</li>
+                                <li>Recommended to have a microphone (not required)</li>
+                            </ul>
+
+                            <h4>Benefits</h4>
+                            <ul>
+                                <li>Host different courses like Expert Infantryman Badge and Expert Field Medical Badge</li>
+                                <li>Attend various events (Operations, Deployments, CT's, Game nights)</li>
+                                <li>Experience one of the most active and fun communities</li>
+                                <li>Wear the famous JFK green beret</li>
+                                <li>Progress through ranks by working hard</li>
+                                <li>Obtain various JFKSWCS badges (PFBC, MFFC, RS, etc.)</li>
+                                <li>Join wargames teams and participate in exclusive deployments</li>
+                            </ul>
+
+                            <div class="links">
+                                <a href="https://forms.gle/TRLhekco52Pr71xe7" target="_blank">Apply Now</a>
+                                <a href="https://docs.google.com/spreadsheets/d/1CmiIpIfru0_6TQ_TfwvKthOPbmmFDhnbkgCTmFBgTFE/edit?gid=2109112654#gid=2109112654" target="_blank">Application Tracker</a>
+                            </div>
+                        </div>
+
+                        <div class="companies">
+                            <div class="company">
+                                <h4>Artemis Company</h4>
+                                <p>The Artemis Company is responsible for the divisions Airborne Courses, such as the Military FreeFall Course and Pathfinder Badge Course. These courses are categorical to host and are one of the few courses that John F. Kennedy Special Warfare Center and School Personnel can take.</p>
+                            </div>
+
+                            <div class="company">
+                                <h4>Spartan Company</h4>
+                                <p>The Spartan Company is responsible for John F. Kennedy Special Warfare Center and School's expert courses, these courses are meticulously supervised. The company itself is due to it's nature in hosting expert courses such as the Expert Infantryman Course.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="2nd-swtg" class="tab-content">
+                    <div class="content">
+                        <img src="https://i.postimg.cc/W1Jy19ky/JFK3.webp" alt="2nd SWTG Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                        <h3>2nd Special Warfare Training Group</h3>
+                        <p>The 2nd Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 2nd Special Warfare Training Group handles some of the most rigorous courses within the United States Army, such as the Ranger School Course, which offers those who pass the renowned Ranger Tab and the Marksman Qualification Course. The 2nd Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
+
+                        <div class="companies">
+                            <div class="company">
+                                <h4>Trojan Company</h4>
+                                <p>The Trojan Company is John F. Kennedy Special Warfare Center and School's sole recruitment company, tasked with recruitment and keeping retention in JFKSWCS. Trojan is also responsible for being there for Companies or Groups that are in need of help. While Trojan handles recruitment; it also is allowed to host the Military FreeFall Course of 1st Special Warfare Training Group.</p>
+                                
+                                <div class="recruitment">
+                                    <h4>Available Positions</h4>
+                                    <div class="positions">
+                                        <p><span class="position">Instructor [E6]</span> - E2+ (∞)</p>
+                                        <p><span class="position">Senior Instructor [E7]</span> - E2+ (3)</p>
+                                    </div>
+
+                                    <h4>Requirements</h4>
+                                    <ul>
+                                        <li>Relatively clean record in USAR</li>
+                                        <li>Previous hosting experience (not required for all positions)</li>
+                                        <li>Able to work in harsh and high-stress conditions</li>
+                                        <li>Uphold highest standards for the School</li>
+                                        <li>Humble and down to earth</li>
+                                        <li>Reachable within a day when contacted</li>
+                                        <li>Minimum 2 weeks commitment</li>
+                                        <li>Tolerable grammar</li>
+                                    </ul>
+
+                                    <h4>Benefits</h4>
+                                    <ul>
+                                        <li>Participate in various events</li>
+                                        <li>Wear the JFK green beret</li>
+                                        <li>Progress through ranks by working hard</li>
+                                        <li>Join wargames team (Part-time)</li>
+                                        <li>Be part of the FIRST mobile company in ASOC</li>
+                                    </ul>
+
+                                    <div class="links">
+                                        <a href="https://forms.gle/8uSjMHKm77egr6N68" target="_blank">Apply Now</a>
+                                        <a href="https://docs.google.com/spreadsheets/d/1CmiIpIfru0_6TQ_TfwvKthOPbmmFDhnbkgCTmFBgTFE/edit?usp=sharing" target="_blank">Application Tracker</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="company">
+                                <h4>Cyrus Company</h4>
+                                <p>The Cyrus Company is one of John F. Kennedy Special Warfare Center and School's leadership companies. Due to its nature of being able to host the divisions strict qualification courses, such as the Special Operations Diver Qualification Course, also known as Combat Diver Qualification Course. Cyrus Company also hosts JFKSWCS's Ranger School, which is one of the division's most strict course.</p>
+                                
+                                <div class="recruitment">
+                                    <h4>Available Positions</h4>
+                                    <div class="positions">
+                                        <p><span class="position">Instructor [E6]</span> - E2+ (∞)</p>
+                                        <p><span class="position">Senior Instructor [E7]</span> - E2+ (3)</p>
+                                        <p><span class="position">Deputy Head Instructor [O1]</span> - E7+ (2)</p>
+                                        <p><span class="position">Head Instructor [O2]</span> - E7+ (2)</p>
+                                    </div>
+
+                                    <h4>Requirements</h4>
+                                    <ul>
+                                        <li>Relatively clean record in USAR</li>
+                                        <li>Must have and use a microphone</li>
+                                        <li>Previous hosting experience</li>
+                                        <li>PC access required (no mobile)</li>
+                                        <li>Work in harsh conditions</li>
+                                        <li>Uphold highest standards</li>
+                                        <li>Humble and reachable</li>
+                                        <li>2 weeks minimum commitment</li>
+                                        <li>Tolerable grammar</li>
+                                    </ul>
+
+                                    <h4>Benefits</h4>
+                                    <ul>
+                                        <li>Host elite Ranger School and MQC</li>
+                                        <li>Participate in various events</li>
+                                        <li>Wear the JFK green beret</li>
+                                        <li>Rapid rank progression</li>
+                                        <li>Obtain JFKSWCS badges</li>
+                                        <li>Join Task Force Viper</li>
+                                    </ul>
+
+                                    <div class="links">
+                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSed64GCsX2Grtsg2xU44Rvl1wt4scMNg_lYxrbXk9fGx8-mVg/viewform" target="_blank">Apply Now</a>
+                                        <a href="https://docs.google.com/spreadsheets/d/1CmiIpIfru0_6TQ_TfwvKthOPbmmFDhnbkgCTmFBgTFE/edit?gid=312209232#gid=312209232" target="_blank">Application Tracker</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tfv" class="tab-content">
+                    <div class="content">
+                        <div class="task-force">
+                            <h3>Task Force Viper</h3>
+                            <img src="https://i.postimg.cc/Y06V9C0j/tfv.png" alt="Task Force Viper" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                            <p>TFV is JFKSWCS elite fighting task force. TFV participates in Scrim and War Games tournaments in order to bring glory to JFKSWCS.</p>
+                            <p>TFV consists of 3 teams currently. These teams are DEVIL and Commando, our two war games teams, as well as VIRAL our scrim team. ACertain_Nobody is our task force leader with PLEBB10, Velruzo and Fairwells being our team leads.</p>
+                            <div class="teams">
+                                <div class="team">
+                                    <h4>DEVIL Team</h4>
+                                    <p>War Games Combat Team</p>
+                                </div>
+                                <div class="team">
+                                    <h4>Commando Team</h4>
+                                    <p>War Games Combat Team</p>
+                                </div>
+                                <div class="team">
+                                    <h4>VIRAL Team</h4>
+                                    <p>Scrim Combat Team</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="https://discord.com/users/954061819952132106" target="_blank">
+                        <i class="fab fa-discord"></i>
+                        <span>Rast0fx</span>
+                    </a>
+                </div>
+                <div class="footer-bottom">
+                    <a href="https://rast0fx.github.io/PotrfolioV1/">&copy; Made by rast0fx</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const footerLinks = document.querySelectorAll('.footer-section a');
+        const startScreen = document.querySelector('.start-screen');
+        const mainContent = document.querySelector('.main-content');
+        const enterButton = document.querySelector('.enter-button');
+
+        // Tab switching function
+        function switchTab(tabId) {
+            tabButtons.forEach(button => button.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+            const selectedContent = document.getElementById(tabId);
+
+            if (selectedButton && selectedContent) {
+                selectedButton.classList.add('active');
+                selectedContent.classList.add('active');
+            }
+        }
+
+        // Event listeners
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                switchTab(button.dataset.tab);
+            });
+        });
+
+        footerLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchTab(link.dataset.tab);
+            });
+        });
+
+        // Start screen functionality
+        enterButton.addEventListener('click', () => {
+            startScreen.classList.add('fade-out');
+            setTimeout(() => {
+                mainContent.classList.add('visible');
+                startScreen.style.display = 'none'; // Completely remove start screen after fade
+            }, 500);
+        });
+    </script>
+</body>
+</html> 
