@@ -6,7 +6,13 @@
     <meta name="theme-color" content="#1a1a1a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JFKSWCS - John F. Kennedy Special Warfare Center and School</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>JFKSWCS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -16,6 +22,32 @@
             padding: 0;
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+        }
+
+        :root {
+            --vh: 1vh;
+            --safe-area-inset-top: env(safe-area-inset-top);
+            --safe-area-inset-bottom: env(safe-area-inset-bottom);
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            scroll-behavior: smooth;
+            height: -webkit-fill-available;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            overscroll-behavior-y: none;
+            -webkit-overflow-scrolling: touch;
+            touch-action: manipulation;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
 
         html, body {
@@ -174,43 +206,6 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-        }
-
-        .tabs-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            padding: 0.5rem;
-            background: rgba(30, 30, 30, 0.9);
-            border-radius: 10px;
-        }
-
-        .tab-button {
-            background-color: transparent;
-            border: 2px solid #ffd700;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            color: #ffd700;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .tab-button:hover {
-            background-color: rgba(255, 215, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .tab-button.active {
-            background-color: #ffd700;
-            color: #0a0a0a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
         }
 
         .tab-content {
@@ -458,9 +453,10 @@
                 padding: 1.5rem;
             }
 
-            .tabs-nav {
-                flex-direction: column;
-                gap: 0.5rem;
+            .tabs-container {
+                margin: 0;
+                padding: 1rem;
+                border-radius: 0;
             }
 
             .tab-button {
@@ -475,10 +471,12 @@
 
             .command-list .position {
                 min-width: 100%;
+                margin-bottom: 0.25rem;
             }
 
             .command-list .rank {
-                margin: 0.5rem 0;
+                margin: 0;
+                display: inline-block;
             }
 
             .recruitment .links {
@@ -504,45 +502,44 @@
                 font-size: 1.2rem;
             }
 
-            .tabs-container {
-                margin: 0;
+            .content h3 {
+                font-size: 1.6rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
+
+            .phase, .company, .command-section {
                 padding: 1rem;
-                border-radius: 0;
             }
 
-            .tabs-nav {
-                padding: 0.5rem;
-                gap: 0.5rem;
+            .phase h4, .company h4 {
+                font-size: 1.2rem;
             }
 
-            .tab-button {
-                font-size: 0.9rem;
-                padding: 0.8rem;
-                margin: 0;
-                width: 100%;
-                height: auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            .recruitment h3 {
+                font-size: 1.4rem;
             }
 
-            .tab-content {
-                padding: 1rem;
-                border-radius: 8px;
+            .recruitment h4 {
+                font-size: 1.2rem;
             }
 
-            .content {
-                padding: 0;
+            .start-screen h1 {
+                font-size: 2rem;
+                padding: 0 1rem;
             }
 
-            .content img {
-                border-radius: 8px;
-                margin: 1rem 0;
+            .start-screen .subtitle {
+                font-size: 1.2rem;
+                padding: 0 1rem;
+                margin-bottom: 2rem;
             }
 
-            .command-section {
-                padding: 1rem;
-                margin-bottom: 1rem;
+            .enter-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
             }
 
             .command-list li {
@@ -786,7 +783,7 @@
                 font-size: 1.4rem;
             }
 
-            .tab-button {
+            tab-button {
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
             }
@@ -884,76 +881,116 @@
             color: #e0e0e0;
         }
 
-        /* Chain of Command */
+        /* Chain of Command Styles */
         .chain-of-command {
-            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .chain-of-command > h3 {
+            color: #ffd700;
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .command-tree {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .command-section {
-            background: rgba(40, 40, 40, 0.9);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 215, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .command-section:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.1);
-            border-color: rgba(255, 215, 0, 0.3);
+            background: rgba(25, 25, 25, 0.95);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
         }
 
         .command-section h3 {
             color: #ffd700;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            text-align: center;
             margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
         }
 
         .command-list {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .command-list li {
-            margin-bottom: 1rem;
-            display: flex;
+            display: grid;
+            grid-template-columns: auto auto 1fr;
             align-items: center;
             gap: 1rem;
-            padding: 0.8rem;
-            border-radius: 8px;
-            background: rgba(50, 50, 50, 0.9);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 215, 0, 0.1);
-        }
-
-        .command-list li:hover {
-            background: rgba(60, 60, 60, 0.9);
-            transform: translateX(5px);
-            border-color: rgba(255, 215, 0, 0.3);
+            padding: 0.75rem;
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 4px;
         }
 
         .command-list .position {
-            font-weight: 600;
             color: #e0e0e0;
-            min-width: 220px;
-        }
-
-        .command-list .name {
-            color: #e0e0e0;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         .command-list .rank {
             color: #ffd700;
             font-size: 0.9rem;
-            padding: 0.3rem 0.8rem;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 5px;
-            margin-right: 0.8rem;
-            font-weight: 500;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 0.25rem 0.5rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .command-list .name {
+            color: #e0e0e0;
+            font-size: 1rem;
+            text-align: left;
+            font-weight: 400;
+        }
+
+        .swtg-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .command-section.swtg-section {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .command-list li {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .command-list .position {
+                margin-bottom: 0.25rem;
+            }
+
+            .command-list .rank {
+                justify-self: start;
+            }
+
+            .command-list .name {
+                text-align: left;
+                min-width: auto;
+            }
         }
 
         /* Start Screen */
@@ -1005,9 +1042,9 @@
         .enter-button {
             padding: 1.2rem 3.5rem;
             font-size: 1.5rem;
-            background-color: transparent;
-            border: 3px solid #ffd700;
-            color: #ffd700;
+            background-color: rgba(40, 40, 40, 0.9);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            color: #e0e0e0;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
@@ -1016,6 +1053,7 @@
             position: relative;
             overflow: hidden;
             animation: fadeIn 1s ease-out 0.6s both;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .enter-button::before {
@@ -1025,16 +1063,18 @@
             left: 50%;
             width: 300%;
             height: 300%;
-            background: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
             transition: all 0.5s ease;
             transform: translate(-50%, -50%) rotate(45deg) translateY(100%);
             z-index: -1;
         }
 
         .enter-button:hover {
-            color: black;
+            background-color: rgba(50, 50, 50, 0.9);
+            border-color: rgba(255, 215, 0, 0.5);
+            color: #ffd700;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
         }
 
         .enter-button:hover::before {
@@ -1236,17 +1276,38 @@
         .recruitment .links a {
             display: inline-block;
             padding: 0.8rem 1.5rem;
-            background: rgba(255, 215, 0, 0.1);
-            color: #ffd700;
+            background: linear-gradient(145deg, rgba(40, 40, 40, 0.9), rgba(30, 30, 30, 0.9));
+            color: #e0e0e0;
             text-decoration: none;
             border-radius: 8px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.2);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recruitment .links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
         }
 
         .recruitment .links a:hover {
-            background: rgba(255, 215, 0, 0.2);
+            background: linear-gradient(145deg, rgba(50, 50, 50, 0.9), rgba(40, 40, 40, 0.9));
+            border-color: rgba(255, 215, 0, 0.4);
+            color: #ffd700;
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.15);
+        }
+
+        .recruitment .links a:hover::before {
+            transform: translateX(100%);
         }
 
         /* Mobile-specific fixes */
@@ -1257,24 +1318,8 @@
                 border-radius: 0;
             }
 
-            .tabs-nav {
-                padding: 0.5rem;
-                gap: 0.5rem;
-            }
-
-            .tab-button {
-                font-size: 0.9rem;
-                padding: 0.8rem;
-                margin: 0;
-                width: 100%;
-                height: auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
             .tab-content {
-                padding: 1rem;
+                padding: 1.5rem;
                 border-radius: 8px;
             }
 
@@ -1309,7 +1354,7 @@
                 display: inline-block;
             }
 
-            .phases {
+            phases {
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
@@ -1439,6 +1484,169 @@
                 padding-bottom: env(safe-area-inset-bottom, 20px);
             }
         }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.98), rgba(15, 15, 15, 0.98));
+            z-index: 1000;
+            transition: 0.3s ease-in-out;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+            border-right: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-header {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .sidebar-header h2 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            padding: 1rem 0;
+        }
+
+        .nav-item {
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            border-left-color: #ffd700;
+        }
+
+        .nav-item i {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Toggle Button */
+        .nav-toggle {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            width: 45px;
+            height: 45px;
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle:hover {
+            background: rgba(30, 30, 30, 0.9);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .nav-toggle i {
+            color: #ffd700;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-toggle.active {
+            left: 310px;
+        }
+
+        /* Content Shift */
+        .main-content {
+            transition: margin-left 0.3s ease-in-out;
+        }
+
+        .main-content.shifted {
+            margin-left: 300px;
+        }
+
+        /* Chain of Command Improvements */
+        .chain-of-command {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            background: linear-gradient(145deg, rgba(25, 25, 25, 0.95), rgba(20, 20, 20, 0.95));
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .command-tree {
+            position: relative;
+            padding-top: 2rem;
+        }
+
+        .command-section {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .command-section:last-child::before {
+            display: none;
+        }
+
+        .swtg-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 1200px) {
+            .swtg-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                left: -100%;
+            }
+
+            .nav-toggle.active {
+                left: calc(100% - 60px);
+            }
+
+            .main-content.shifted {
+                margin-left: 0;
+            }
+
+            .command-section {
+                padding: 1.5rem;
+            }
+
+            .command-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1447,64 +1655,136 @@
         <h1>Army Special Operations Command</h1>
         <div class="subtitle">John F. Kennedy Special Warfare Center and School</div>
         <button class="enter-button">Enter Website</button>
+        <div class="contact-section" style="margin-top: 3rem; text-align: center;">
+            <a href="https://discord.com/users/954061819952132106" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #e0e0e0; text-decoration: none; padding: 0.5rem 1rem; background: rgba(40, 40, 40, 0.9); border-radius: 8px; border: 1px solid rgba(255, 215, 0, 0.2); transition: all 0.3s ease; margin-bottom: 1rem;">
+                <i class="fab fa-discord"></i>
+                <span>Rast0fx</span>
+            </a>
+            <p style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">
+                <a href="https://rast0fx.github.io/PotrfolioV1/" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">&copy; Made by rast0fx</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Add after the start screen div and before the main content -->
+    <div class="nav-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>JFKSWCS</h2>
+        </div>
+        <nav class="nav-menu">
+            <a href="#" class="nav-item active" data-tab="general">
+                <i class="fas fa-star"></i>
+                General Information
+            </a>
+            <a href="#" class="nav-item" data-tab="coc">
+                <i class="fas fa-chevron-up"></i>
+                Chain of Command
+            </a>
+            <a href="#" class="nav-item" data-tab="jfkcs">
+                <i class="fas fa-hat-cowboy"></i>
+                JFKCS
+            </a>
+            <a href="#" class="nav-item" data-tab="1st-swtg">
+                <i class="fas fa-parachute-box"></i>
+                1ST SWTG
+            </a>
+            <a href="#" class="nav-item" data-tab="2nd-swtg">
+                <i class="fas fa-crosshairs"></i>
+                2ND SWTG
+            </a>
+            <a href="#" class="nav-item" data-tab="tfv">
+                <i class="fas fa-skull"></i>
+                Task Force Viper
+            </a>
+        </nav>
     </div>
 
     <!-- Main Content Wrapper -->
     <div class="main-content">
         <main>
             <div class="tabs-container">
-                <div class="tabs-nav">
-                    <button class="tab-button active" data-tab="general">General Information</button>
-                    <button class="tab-button" data-tab="jfkcs">JFKCS</button>
-                    <button class="tab-button" data-tab="1st-swtg">1st SWTG</button>
-                    <button class="tab-button" data-tab="2nd-swtg">2nd SWTG</button>
-                    <button class="tab-button" data-tab="tfv">Task Force Viper</button>
-                </div>
-
                 <div id="general" class="tab-content active">
                     <div class="content">
+                        <h3>John F. Kennedy Special Warfare Center and School</h3>
                         <img src="https://i.postimg.cc/MZdNPfw9/JFK1.webp" alt="JFKSWCS Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                         <p>The John F. Kennedy Special Warfare Center and School - also known as JFKSWCS - provides the United States Army with the highest quality badge and leadership courses, such as the Ranger School or the Military Freefall Course.</p>
                         <p>The John F. Kennedy Special Warfare Center and School prepares soldiers for advanced and specialized roles, whether that be a high attitude specialist or a pinpoint accurate marksman. JFKSWCS Instructors are the most prestigious in all of the United States Army, with only the best-becoming instructors in JFK, achieving the green beret.</p>
+                    </div>
+                </div>
 
+                <div id="coc" class="tab-content">
+                    <div class="content">
                         <div class="chain-of-command">
-                            <h3>Chain of Command</h3>
-                            
-                            <div class="command-section">
-                                <h3>ASOC HICOM</h3>
-                                <ul class="command-list">
-                                    <li><span class="position">Commanding General:</span><span class="rank">[CG]</span><span class="name">Tvctical</span></li>
-                                    <li><span class="position">Deputy Commanding General:</span><span class="rank">[DCG]</span><span class="name">CowTyrant</span></li>
-                                    <li><span class="position">Command Sergeant Major:</span><span class="rank">[CSM]</span><span class="name">AliveMessi102</span></li>
-                                    <li><span class="position">Chief of Staff:</span><span class="name"><span class="rank">[CoS]</span><span class="name">NeroOvuh</span></li>
-                                </ul>
-                            </div>
+                           
+                            <div class="command-tree">
+                                
 
-                            <div class="command-section">
-                                <h3>John F. Kennedy HICOM</h3>
-                                <ul class="command-list">
-                                    <li><span class="position">Commanding Officer:</span><span class="rank">[CO]</span><span class="name">N/A</span></li>
-                                    <li><span class="position">Executive Officer:</span><span class="rank">[XO]</span><span class="name">FairwelIs</span></li>
-                                    <li><span class="position">Command Sergeant Major:</span><span class="rank">[CSM]</span><span class="name">inflixction</span></li>
-                                </ul>
-                            </div>
+                                <div class="command-section">
+                                    <h3>JOHN F. KENNEDY SPECIAL WARFARE CENTER AND SCHOOL HICOM</h3>
+                                    <ul class="command-list">
+                                        <li>
+                                            <span class="position">Commanding Officer:</span>
+                                            <span class="rank">[CO]</span>
+                                            <span class="name">N/A</span>
+                                        </li>
+                                        <li>
+                                            <span class="position">Executive Officer:</span>
+                                            <span class="rank">[XO]</span>
+                                            <span class="name">Fairwells</span>
+                                        </li>
+                                        <li>
+                                            <span class="position">Command Sergeant Major:</span>
+                                            <span class="rank">[CSM]</span>
+                                            <span class="name">inflixction</span>
+                                        </li>
+                                    </ul>
+                                </div>
 
-                            <div class="command-section">
-                                <h3>1st Special Warfare Training Group HICOM</h3>
-                                <ul class="command-list">
-                                    <li><span class="position">Group Commanding Officer:</span><span class="rank">[1SWTG-CO]</span><span class="name">PureRelief</span></li>
-                                    <li><span class="position">Group Executive Officer:</span><span class="rank">[1SWTG-XO]</span><span class="name">gabriel47494</span></li>
-                                    <li><span class="position">Group Sergeant Major:</span><span class="rank">[1SWTG-SM]</span><span class="name">rast0fx</span></li>
-                                </ul>
-                            </div>
+                                <div class="command-section">
+                                    <h3>1ST SPECIAL WARFARE TRAINING GROUP HICOM</h3>
+                                    <ul class="command-list">
+                                        <li>
+                                            <span class="position">Group Commanding Officer:</span>
+                                            <span class="rank">[1SWTG-CO]</span>
+                                            <span class="name">PureRelief</span>
+                                        </li>
+                                        <li>
+                                            <span class="position">Group Executive Officer:</span>
+                                            <span class="rank">[1SWTG-XO]</span>
+                                            <span class="name">gabriel47494</span>
+                                        </li>
+                                        <li>
+                                            <span class="position">Group Sergeant Major:</span>
+                                            <span class="rank">[1SWTG-SM]</span>
+                                            <span class="name">rast0fx</span>
+                                        </li>
+                                    </ul>
+                                </div>
 
-                            <div class="command-section">
-                                <h3>2nd Special Warfare Training Group HICOM</h3>
-                                <ul class="command-list">
-                                    <li><span class="position">Group Commanding Officer:</span><span class="rank">[2SWTG-CO]</span><span class="name">"TFL" ACertain_Nobody</span></li>
-                                    <li><span class="position">Group Executive Officer:</span><span class="rank">[2SWTG-XO]</span><span class="name">"CTM" ZachW285</span></li>
-                                    <li><span class="position">Group Sergeant Major:</span><span class="rank">[2SWTG-SM]</span><span class="name">AstraeaXV</span></li>
-                                </ul>
+                                <div class="command-section">
+                                    <h3>2ND SPECIAL WARFARE TRAINING GROUP HICOM</h3>
+                                    <ul class="command-list">
+                                        <li>
+                                            <span class="position">Group Commanding Officer:</span>
+                                            <span class="rank">[2SWTG-CO]</span>
+                                            <span class="name">"TFL" ACertain_Nobody</span>
+                                        </li>
+                                        <li>
+                                            <span class="position">Group Executive Officer:</span>
+                                            <span class="rank">[2SWTG-XO]</span>
+                                            <span class="name">"CTM" ZachW285</span>
+                                        </li>
+                                        <li>
+                                            <span class="position">Group Sergeant Major:</span>
+                                            <span class="rank">[2SWTG-SM]</span>
+                                            <span class="name">AstraeaXV</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1695,7 +1975,7 @@
                             <h3>Task Force Viper</h3>
                             <img src="https://i.postimg.cc/Y06V9C0j/tfv.png" alt="Task Force Viper" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                             <p>TFV is JFKSWCS elite fighting task force. TFV participates in Scrim and War Games tournaments in order to bring glory to JFKSWCS.</p>
-                            <p>TFV consists of 3 teams currently. These teams are DEVIL and Commando, our two war games teams, as well as VIRAL our scrim team. ACertain_Nobody is our task force leader with PLEBB10, Velzuro and Fairwells being our team leads.</p>
+                            <p>TFV consists of 3 teams currently. These teams are DEVIL and Commando, our two war games teams, as well as VIRAL our scrim team. ACertain_Nobody is our task force leader with PLEBB10, Velruzo and Fairwells being our team leads.</p>
                             <div class="teams">
                                 <div class="team">
                                     <h4>DEVIL Team</h4>
@@ -1716,115 +1996,188 @@
             </div>
         </main>
 
-        <footer>
-            <div class="footer-content">
-                <div class="footer-section">
-                    <a href="https://discord.com/users/954061819952132106" target="_blank">
-                        <i class="fab fa-discord"></i>
-                        <span>Rast0fx</span>
-                    </a>
-                </div>
-                <div class="footer-bottom">
-                    <a href="https://rast0fx.github.io/PotrfolioV1/">&copy; Made by rast0fx</a>
-                </div>
-            </div>
-        </footer>
+        
     </div>
 
     <script>
-        // Tab functionality
+        // Device detection
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+        // Set correct viewport height
+        function setViewportHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        // Initialize viewport height
+        setViewportHeight();
+
+        // Update viewport height on resize and orientation change
+        window.addEventListener('resize', debounce(setViewportHeight, 250));
+        window.addEventListener('orientationchange', () => {
+            setTimeout(setViewportHeight, 100);
+        });
+
+        // Debounce function for performance
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Passive event listeners for better scrolling performance
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Prevent elastic scrolling on iOS
+        document.body.addEventListener('touchmove', function(e) {
+            if (startScreen.style.display !== 'none') {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Fix iOS double-tap zoom
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // DOM Elements
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabContents = document.querySelectorAll('.tab-content');
         const footerLinks = document.querySelectorAll('.footer-section a');
         const startScreen = document.querySelector('.start-screen');
         const mainContent = document.querySelector('.main-content');
         const enterButton = document.querySelector('.enter-button');
+        const navToggle = document.querySelector('.nav-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const navItems = document.querySelectorAll('.nav-item');
 
-        // Fix iOS scroll behavior
-        document.addEventListener('touchmove', function(e) {
-            if (startScreen.style.display !== 'none') {
-                e.preventDefault();
-            }
-        }, { passive: false });
+        // Optimized tab switching with requestAnimationFrame
+        function switchTab(tabId) {
+            requestAnimationFrame(() => {
+                tabButtons.forEach(button => button.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
 
-        // Prevent double-tap zoom on buttons and links
-        document.querySelectorAll('button, a').forEach(element => {
-            element.addEventListener('touchend', function(e) {
-                e.preventDefault();
-                if (e.target.click) {
-                    e.target.click();
+                const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
+                const selectedContent = document.getElementById(tabId);
+
+                if (selectedButton && selectedContent) {
+                    selectedButton.classList.add('active');
+                    selectedContent.classList.add('active');
+
+                    if (window.innerWidth <= 768) {
+                        selectedContent.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
-        });
-
-        // Tab switching function with smooth scroll
-        function switchTab(tabId) {
-            tabButtons.forEach(button => button.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-
-            const selectedButton = document.querySelector(`[data-tab="${tabId}"]`);
-            const selectedContent = document.getElementById(tabId);
-
-            if (selectedButton && selectedContent) {
-                selectedButton.classList.add('active');
-                selectedContent.classList.add('active');
-
-                // Smooth scroll to content on mobile
-                if (window.innerWidth <= 768) {
-                    selectedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
         }
 
-        // Event listeners with touch optimization
-        tabButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
+        // Event Listeners
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
                 e.preventDefault();
-                switchTab(button.dataset.tab);
+                const tabId = item.dataset.tab;
+                
+                requestAnimationFrame(() => {
+                    navItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    switchTab(tabId);
+
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        mainContent.classList.remove('shifted');
+                    }
+                });
             });
         });
 
-        footerLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                switchTab(link.dataset.tab);
+        // Sidebar functionality
+        navToggle.addEventListener('click', () => {
+            requestAnimationFrame(() => {
+                sidebar.classList.toggle('active');
+                navToggle.classList.toggle('active');
+                mainContent.classList.toggle('shifted');
             });
         });
 
-        // Start screen functionality with touch optimization
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && !navToggle.contains(e.target) && sidebar.classList.contains('active')) {
+                requestAnimationFrame(() => {
+                    sidebar.classList.remove('active');
+                    navToggle.classList.remove('active');
+                    mainContent.classList.remove('shifted');
+                });
+            }
+        });
+
+        // Enter button functionality
         enterButton.addEventListener('click', (e) => {
             e.preventDefault();
             startScreen.classList.add('fade-out');
             setTimeout(() => {
-                mainContent.classList.add('visible');
-                startScreen.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                requestAnimationFrame(() => {
+                    mainContent.classList.add('visible');
+                    startScreen.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
             }, 500);
         });
 
-        // Fix iOS vh units
-        function fixVH() {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-
-        window.addEventListener('resize', fixVH);
-        window.addEventListener('orientationchange', fixVH);
-        fixVH();
-
-        // Prevent pull-to-refresh on mobile
-        document.body.addEventListener('touchstart', function(e) {
-            if (e.touches.length > 1) {
-                e.preventDefault();
+        // Window resize handler
+        const resizeHandler = debounce(() => {
+            if (window.innerWidth <= 768) {
+                mainContent.classList.remove('shifted');
+            } else if (sidebar.classList.contains('active')) {
+                mainContent.classList.add('shifted');
             }
-        }, { passive: false });
+        }, 250);
 
-        // Handle orientation change
-        window.addEventListener('orientationchange', function() {
-            setTimeout(function() {
-                window.scrollTo(0, 0);
-            }, 100);
+        window.addEventListener('resize', resizeHandler);
+
+        // Handle back button and initial load
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.slice(1);
+            if (hash) {
+                switchTab(hash);
+            }
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.slice(1);
+            if (hash) {
+                switchTab(hash);
+            }
+        });
+
+        // Fix for iOS Safari 100vh issue
+        if (isIOS) {
+            const appHeight = () => {
+                const doc = document.documentElement;
+                doc.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+            };
+            window.addEventListener('resize', appHeight);
+            appHeight();
+        }
     </script>
 </body>
 </html> 
