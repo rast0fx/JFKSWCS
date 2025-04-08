@@ -120,13 +120,14 @@
         }
 
         .main-content {
-            position: fixed;
-            top: 0;
+            position: relative;
+            top: 60px;
             left: 0;
             right: 0;
             bottom: 0;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
+            margin-top: 0;
         }
 
         /* Fix for notched devices */
@@ -653,125 +654,6 @@
 
         @media (max-width: 576px) {
             .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .hero-content .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .content h3 {
-                font-size: 1.6rem;
-            }
-
-            .content p {
-                font-size: 1rem;
-            }
-
-            .phase, .company, .command-section {
-                padding: 1rem;
-            }
-
-            .phase h4, .company h4 {
-                font-size: 1.2rem;
-            }
-
-            .recruitment h3 {
-                font-size: 1.4rem;
-            }
-
-            .recruitment h4 {
-                font-size: 1.2rem;
-            }
-
-            .start-screen h1 {
-                font-size: 2.5rem;
-                padding: 0 1rem;
-            }
-
-            .start-screen .subtitle {
-                font-size: 1.4rem;
-                padding: 0 1rem;
-                margin-bottom: 2rem;
-            }
-
-            .enter-button {
-                padding: 0.8rem 2rem;
-                font-size: 1.1rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-bottom {
-                text-align: center;
-            }
-        }
-
-        /* Touch Device Optimizations */
-        @media (hover: none) {
-            .tab-button:hover,
-            .command-list li:hover,
-            .phase:hover,
-            .company:hover,
-            .recruitment .links a:hover,
-            .footer-section a:hover {
-                transform: none;
-            }
-
-            .tab-button:active,
-            .command-list li:active,
-            .phase:active,
-            .company:active,
-            .recruitment .links a:active,
-            .footer-section a:active {
-                transform: scale(0.98);
-            }
-        }
-
-        /* High Resolution Screens */
-        @media (min-width: 1400px) {
-            .tabs-container {
-                max-width: 1400px;
-            }
-
-            .content img {
-                max-width: 1000px;
-            }
-        }
-
-        /* Ensure proper display on ultra-wide screens */
-        @media (min-width: 1920px) {
-            .tabs-container {
-                max-width: 1600px;
-            }
-        }
-
-        /* Fix for small height screens */
-        @media (max-height: 600px) {
-            .start-screen h1 {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .start-screen .subtitle {
-                font-size: 1.2rem;
-                margin-bottom: 2rem;
-            }
-
-            .enter-button {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-        }
-
-        /* Ensure content is readable on very small devices */
-        @media (max-width: 320px) {
-            .hero-content h1 {
                 font-size: 1.8rem;
             }
 
@@ -964,13 +846,16 @@
         }
 
         .swtg-container {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .command-section.swtg-section {
-            margin-bottom: 0;
+        @media (max-width: 1200px) {
+            .swtg-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -980,6 +865,7 @@
             }
 
             .command-list .position {
+                min-width: 100%;
                 margin-bottom: 0.25rem;
             }
 
@@ -1485,143 +1371,84 @@
             }
         }
 
-        /* Sidebar Navigation */
-        .sidebar {
-            position: fixed;
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #1a1a1a;
+            position: sticky;
             top: 0;
-            left: -300px;
-            width: 300px;
-            height: 100%;
-            background: linear-gradient(145deg, rgba(20, 20, 20, 0.98), rgba(15, 15, 15, 0.98));
             z-index: 1000;
-            transition: 0.3s ease-in-out;
-            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            overflow-y: auto;
-            border-right: 1px solid rgba(255, 215, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
         }
 
-        .sidebar.active {
-            left: 0;
-        }
-
-        .sidebar-header {
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-        }
-
-        .sidebar-header h2 {
-            color: #ffd700;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-menu {
-            padding: 1rem 0;
-        }
-
-        .nav-item {
-            padding: 0.8rem 2rem;
+        .nav-links {
             display: flex;
-            align-items: center;
-            color: #e0e0e0;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
             text-decoration: none;
+            font-weight: 500;
             transition: all 0.3s ease;
-            border-left: 3px solid transparent;
+            padding: 0.5rem;
+            border-radius: 4px;
         }
 
-        .nav-item:hover, .nav-item.active {
+        .nav-links a:hover {
+            color: #ffd700;
             background: rgba(255, 215, 0, 0.1);
+        }
+
+        .nav-links a.active {
             color: #ffd700;
-            border-left-color: #ffd700;
         }
 
-        .nav-item i {
-            margin-right: 1rem;
-            font-size: 1.2rem;
-        }
-
-        /* Toggle Button */
-        .nav-toggle {
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            width: 45px;
-            height: 45px;
-            background: rgba(20, 20, 20, 0.9);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .hamburger {
+            display: none;
             cursor: pointer;
-            z-index: 1001;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
             transition: all 0.3s ease;
-        }
-
-        .nav-toggle:hover {
-            background: rgba(30, 30, 30, 0.9);
-            border-color: rgba(255, 215, 0, 0.5);
-        }
-
-        .nav-toggle i {
-            color: #ffd700;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-toggle.active {
-            left: 310px;
-        }
-
-        /* Content Shift */
-        .main-content {
-            transition: margin-left 0.3s ease-in-out;
-        }
-
-        .main-content.shifted {
-            margin-left: 300px;
-        }
-
-       
-
-        .swtg-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 1200px) {
-            .swtg-container {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 768px) {
-            .sidebar {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
                 width: 100%;
-                left: -100%;
-            }
-
-            .nav-toggle.active {
-                left: calc(100% - 60px);
-            }
-
-            .main-content.shifted {
-                margin-left: 0;
-            }
-
-            .command-section {
-                padding: 1.5rem;
-            }
-
-            .command-list li {
+                background-color: #1a1a1a;
                 flex-direction: column;
-                align-items: flex-start;
+                gap: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+
+            .nav-links.active {
+                max-height: 500px;
+                padding: 1rem 0;
+            }
+
+            .nav-links a {
+                padding: 1rem 2rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
         }
     </style>
@@ -1643,24 +1470,21 @@
         </div>
     </div>
 
-    <!-- Add after the start screen div and before the main content -->
-    <div class="nav-toggle">
-        <i class="fas fa-bars"></i>
-    </div>
-
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <h2>JFKSWCS</h2>
-<P><i>Veritas et Libertas</i></P>
+    <!-- Navbar -->
+    <nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <nav class="nav-menu">
+        <div class="nav-links">
             <a href="#" class="nav-item active" data-tab="general">
                 <i class="fas fa-star"></i>
                 General Information
             </a>
-           
+
             <a href="#" class="nav-item" data-tab="jfkcs">
-                <i class="fas fa-hat-cowboy"></i>
+                <i class="fas fa-graduation-cap"></i>
                 JFKCS
             </a>
             <a href="#" class="nav-item" data-tab="1st-swtg">
@@ -1675,8 +1499,8 @@
                 <i class="fas fa-skull"></i>
                 Task Force Viper
             </a>
-        </nav>
-    </div>
+        </div>
+    </nav>
 
     <!-- Main Content Wrapper -->
     <div class="main-content">
@@ -1688,12 +1512,12 @@
                         <img src="https://i.postimg.cc/MZdNPfw9/JFK1.webp" alt="JFKSWCS Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                         <p>The John F. Kennedy Special Warfare Center and School - also known as JFKSWCS - provides the United States Army with the highest quality badge and leadership courses, such as the Ranger School or the Military Freefall Course.</p>
                        <p>The John F. Kennedy Special Warfare Center and School prepares soldiers for advanced and specialized roles, whether that be a high attitude specialist or a pinpoint accurate marksman. JFKSWCS Instructors are the most prestigious in all of the United States Army, with only the best-becoming instructors in JFK, achieving the green beret.</p>
-                
-                        <img src="https://i.postimg.cc/vmDDGgMR/Screenshot-2025-03-30-at-22-49-14.jpg" alt="JFKSWCS Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"
-                    </div>
-                
 
-                                    
+                        <img src="https://i.postimg.cc/vmDDGgMR/Screenshot-2025-03-30-at-22-49-14.jpg" alt="JFKSWCS Image" style="width: 100%; max-width: 400px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                    </div>
+
+
+
                                                 <div class="command-section">
                                                     <h3>ASOC HICOM</h3>
                                                     <ul class="command-list">
@@ -1719,7 +1543,7 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                
+
                                                 <!-- JFK HICOM -->
                                                 <div class="command-section">
                                                     <h3>JFK HICOM</h3>
@@ -1741,7 +1565,7 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                
+
                                                 <!-- SWTG Groups -->
                                                 <div class="swtg-container">
                                                     <!-- 1st SWTG Group -->
@@ -1766,7 +1590,7 @@
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                        
+
                                                         <div class="companies-container">
                                                             <!-- Spartan Company -->
                                                             <div class="command-section sub-unit">
@@ -1789,7 +1613,7 @@
                                                                     </li>
                                                                 </ul>
                                                             </div>
-                
+
                                                             <!-- Artemis Company -->
                                                             <div class="command-section sub-unit">
                                                                 <h4>Artemis Company</h4>
@@ -1813,7 +1637,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                
+
                                                     <!-- 2nd SWTG Group -->
                                                     <div class="group-container">
                                                         <div class="command-section">
@@ -1836,7 +1660,7 @@
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                        
+
                                                         <div class="companies-container">
                                                             <!-- Trojan Company -->
                                                             <div class="command-section sub-unit">
@@ -1859,7 +1683,7 @@
                                                                     </li>
                                                                 </ul>
                                                             </div>
-                
+
                                                             <!-- Cyrus Company -->
                                                             <div class="command-section sub-unit">
                                                                 <h4>Cyrus Company</h4>
@@ -1887,16 +1711,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                
+
                 </div>
 
-              
+
 
                 <div id="jfkcs" class="tab-content">
                     <div class="content">
                         <img src="https://i.postimg.cc/BQzkNkFh/Sans-titre-pdn-2.webp" alt="JFKCS Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                         <p>The John F. Kennedy Candidate School was designed to teach newly recruited personnel that are currently within the school learn more information that is primarily related to ASOC, JFKSWCS, and lastly Instructing. As well as testing each candidates knowledge.</p>
-                        
+
                         <h3>Phases</h3>
                         <div class="phases">
                             <div class="phase">
@@ -1921,124 +1745,103 @@
 
                 <div id="1st-swtg" class="tab-content">
                     <div class="content">
-                        <img src="https://i.postimg.cc/nrPdH7cZ/1.webp" alt="1st SWTG Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                         <h3>1st Special Warfare Training Group</h3>
+                        <img src="https://i.postimg.cc/nrPdH7cZ/1.webp" alt="1st SWTG Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                         <p>The 1st Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 1st Special Warfare Training Group handles some rudimentary US Army courses. this includes the Military Freefall Course, Pathfinder Badge Course, and the Expert Infantry Badge Qualification Course. The 1st Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
 
-                        
 
-                        <div class="companies">
-                            <div class="company">
-                                <h4>Artemis Company</h4>
-                                <p>The Artemis Company is responsible for the divisions Airborne Courses, such as the Military FreeFall Course and Pathfinder Badge Course. These courses are categorical to host and are one of the few courses that John F. Kennedy Special Warfare Center and School Personnel can take.</p>
-                            </div>
 
-                            <div class="company">
-                                <h4>Spartan Company</h4>
-                                <p>The Spartan Company is responsible for John F. Kennedy Special Warfare Center and School's expert courses, these courses are meticulously supervised. The company itself is due to it's nature in hosting expert courses such as the Expert Infantryman Course.</p>
+                        <div class="command-section">
+                            <h3>1st SWTG Companies</h3>
+                            <div class="companies">
+                                <div class="company">
+                                    <h4>Artemis Company</h4>
+                                    <p>The Artemis Company is responsible for the divisions Airborne Courses, such as the Military FreeFall Course and Pathfinder Badge Course. These courses are categorical to host and are one of the few courses that John F. Kennedy Special Warfare Center and School Personnel can take.</p>
+                                </div>
+
+                                <div class="company">
+                                    <h4>Spartan Company</h4>
+                                    <p>The Spartan Company is responsible for John F. Kennedy Special Warfare Center and School's expert courses, these courses are meticulously supervised. The company itself is due to its nature in hosting expert courses such as the Expert Infantryman Course.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="recruitment">
-                        <h3>Available Positions</h3>
-                        <div class="positions">
-                            <p><span class="position">Senior Instructor (SI)</span> - E7</p>
-                            <p><span class="position">Instructor (INS)</span> - E6</p>
-                        </div>
 
-                        <h4>Requirements</h4>
-                        <ul>
-                            <li>E2+ for Enlisted positions</li>
-                            <li>E7+ for Officer positions</li>
-                            <li>Must have both Roblox and Discord 2FA enabled</li>
-                            <li>Some kind of experience hosting phases/tryouts</li>
-                            <li>Relatively clean USAR career</li>
-                            <li>Able to be harsh in hosting and uphold the highest standards</li>
-                            <li>Tolerable grammar</li>
-                            <li>Has access to PC</li>
-                            <li>Willing to serve a minimum of 2 weeks before discharging</li>
-                            <li>Not blacklisted from JFKSWCS or ASOC</li>
-                            <li>Recommended to have a microphone (not required)</li>
-                        </ul>
+                        <div class="command-section">
+                            <h3>Recruitment</h3>
+                            <div class="recruitment">
+                                <h4>Requirements</h4>
+                                <div class="requirements">
+                                    <ul>
+                                        <li>Follow instructions within the application</li>
+                                        <li>E2+ for Enlisted position</li>
+                                        <li>E7+ for Officer position</li>
+                                        <li>Must have both Roblox and Discord 2FA enabled</li>
+                                        <li>Some kind of experience hosting phases for SI+ (DSA, OCS, BHs, AIS/AS, RTB, MPC Alpha, HF, etc.)</li>
+                                        <li>Relatively clean USAR career</li>
+                                        <li>Able to be harsh in hosting and uphold the highest standards for the School</li>
+                                        <li>Tolerable grammar</li>
+                                        <li>Has access to PC</li>
+                                        <li>Willing to serve a minimum of two weeks before discharging</li>
+                                        <li>Not blacklisted from JFKSWCS or ASOC</li>
+                                        <li>Recommended to have a microphone, though not required</li>
+                                    </ul>
+                                </div>
 
-                        <h4>Benefits</h4>
-                        <ul>
-                            <li>Host different courses like Expert Infantryman Badge and Expert Field Medical Badge</li>
-                            <li>Attend various events (Operations, Deployments, CT's, Game nights)</li>
-                            <li>Experience one of the most active and fun communities</li>
-                            <li>Wear the famous JFK green beret</li>
-                            <li>Progress through ranks by working hard</li>
-                            <li>Obtain various JFKSWCS badges (PFBC, MFFC, RS, etc.)</li>
-                            <li>Join wargames teams and participate in exclusive deployments</li>
-                        </ul>
+                                <h4>Benefits</h4>
+                                <div class="benefits">
+                                    <ul>
+                                        <li>Able to host different courses like Expert Infantryman Badge and Expert Field Medical Badge</li>
+                                        <li>Be able to attend different kinds of events like Operations, Deployments, CT's, Game nights, etc.</li>
+                                        <li>Will be able to experience one of the most active and fun community, and able to be one of elite Instructors within USAR</li>
+                                        <li>Will be able to wear the famous JFK green beret</li>
+                                        <li>Will be able to progress through ranks easily by working hard</li>
+                                        <li>Be able to obtain a vast majority of badges that JFKSWCS offers (PFBC, MFFC, RS, etc.)</li>
+                                        <li>Ability to join a wargames oriented team and participate in exclusive JFKSWCS deployments</li>
+                                    </ul>
+                                </div>
 
-                        <div class="links">
-                            <a href="https://forms.gle/TRLhekco52Pr71xe7" target="_blank">Apply Now</a>
-                            <a href="https://docs.google.com/spreadsheets/d/1CmiIpIfru0_6TQ_TfwvKthOPbmmFDhnbkgCTmFBgTFE/edit?gid=2109112654#gid=2109112654" target="_blank">Application Tracker</a>
+                                <div class="links">
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSegaZ8AjG40fPLMzztm1vY5mB4_9GHek5LIJt3LOwZBWkrynQ/viewform" target="_blank" class="application-link">
+                                        Apply to Artemis
+                                    </a>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeA9cR_hYuZAyXIwdcjJ8596Lir2BmQApacT2N4sG9vvOgbKQ/viewform" target="_blank" class="application-link">
+                                        Apply to Spartan
+                                    </a>
+                                    <a href="https://docs.google.com/spreadsheets/d/1CmiIpIfru0_6TQ_TfwvKthOPbmmFDhnbkgCTmFBgTFE/edit?usp=sharing" target="_blank" class="application-link">
+                                        Application Tracker
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div id="2nd-swtg" class="tab-content">
                     <div class="content">
-                        <img src="https://i.postimg.cc/W1Jy19ky/JFK3.webp" alt="2nd SWTG Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                         <h3>2nd Special Warfare Training Group</h3>
+                        <img src="https://i.postimg.cc/W1Jy19ky/JFK3.webp" alt="2nd SWTG Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                         <p>The 2nd Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 2nd Special Warfare Training Group handles some of the most rigorous courses within the United States Army, such as the Ranger School Course, which offers those who pass the renowned Ranger Tab and the Marksman Qualification Course. The 2nd Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
 
-                        <div class="companies">
-                            <div class="company">
-                                <h4>Trojan Company</h4>
-                                <p>The Trojan Company is John F. Kennedy Special Warfare Center and School's sole recruitment company, tasked with recruitment and keeping retention in JFKSWCS. Trojan is also responsible for being there for Companies or Groups that are in need of help. While Trojan handles recruitment; it also is allowed to host the Military FreeFall Course of 1st Special Warfare Training Group.</p>
-                                
-                                <div class="recruitment">
-                                    <h4>Available Positions</h4>
-                                    <div class="positions">
-                                        <p><span class="position">Instructor [E6]</span> - E2+ (∞)</p>
-                                        <p><span class="position">Senior Instructor [E7]</span> - E2+ (3)</p>
-                                    </div>
+                        <div class="command-section">
+                            <h3>2nd SWTG Companies</h3>
+                            <div class="companies">
+                                <div class="company">
+                                    <h4>Trojan Company</h4>
+                                    <p>The Trojan Company is John F. Kennedy Special Warfare Center and School's sole recruitment company, tasked with recruitment and keeping retention in JFKSWCS. Trojan is also responsible for being there for Companies or Groups that are in need of help. While Trojan handles recruitment; it also is allowed to host the Military FreeFall Course of 1st Special Warfare Training Group.</p>
+                                </div>
 
-                                    <h4>Requirements</h4>
-                                    <ul>
-                                        <li>Relatively clean record in USAR</li>
-                                        <li>Previous hosting experience (not required for all positions)</li>
-                                        <li>Able to work in harsh and high-stress conditions</li>
-                                        <li>Uphold highest standards for the School</li>
-                                        <li>Humble and down to earth</li>
-                                        <li>Reachable within a day when contacted</li>
-                                        <li>Minimum 2 weeks commitment</li>
-                                        <li>Tolerable grammar</li>
-                                    </ul>
-
-                                    <h4>Benefits</h4>
-                                    <ul>
-                                        <li>Participate in various events</li>
-                                        <li>Wear the JFK green beret</li>
-                                        <li>Progress through ranks by working hard</li>
-                                        <li>Join wargames team (Part-time)</li>
-                                        <li>Be part of the FIRST mobile company in ASOC</li>
-                                    </ul>
-
-                                    <div class="links">
-                                        <a href="https://forms.gle/8uSjMHKm77egr6N68" target="_blank">Apply Now</a>
-                                        <a href="https://docs.google.com/spreadsheets/d/1CmiIpIfru0_6TQ_TfwvKthOPbmmFDhnbkgCTmFBgTFE/edit?usp=sharing" target="_blank">Application Tracker</a>
-                                    </div>
+                                <div class="company">
+                                    <h4>Cyrus Company</h4>
+                                    <p>The Cyrus Company is one of John F. Kennedy Special Warfare Center and School's leadership companies. Due to its nature of being able to host the divisions strict qualification courses, such as the Special Operations Diver Qualification Course, also known as Combat Diver Qualification Course. Cyrus Company also hosts JFKSWCS's Ranger School, which is one of the division's most strict course.</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="company">
-                                <h4>Cyrus Company</h4>
-                                <p>The Cyrus Company is one of John F. Kennedy Special Warfare Center and School's leadership companies. Due to its nature of being able to host the divisions strict qualification courses, such as the Special Operations Diver Qualification Course, also known as Combat Diver Qualification Course. Cyrus Company also hosts JFKSWCS's Ranger School, which is one of the division's most strict course.</p>
-                                
-                                <div class="recruitment">
-                                    <h4>Available Positions</h4>
-                                    <div class="positions">
-                                        <p><span class="position">Instructor [E6]</span> - E2+ (∞)</p>
-                                        <p><span class="position">Senior Instructor [E7]</span> - E2+ (3)</p>
-                                        <p><span class="position">Deputy Head Instructor [O1]</span> - E7+ (2)</p>
-                                        <p><span class="position">Head Instructor [O2]</span> - E7+ (2)</p>
-                                    </div>
-
-                                    <h4>Requirements</h4>
+                        <div class="command-section">
+                            <h3>Recruitment</h3>
+                            <div class="recruitment">
+                                <h4>Requirements</h4>
+                                <div class="requirements">
                                     <ul>
                                         <li>Relatively clean record in USAR</li>
                                         <li>Must have and use a microphone</li>
@@ -2050,8 +1853,10 @@
                                         <li>2 weeks minimum commitment</li>
                                         <li>Tolerable grammar</li>
                                     </ul>
+                                </div>
 
-                                    <h4>Benefits</h4>
+                                <h4>Benefits</h4>
+                                <div class="benefits">
                                     <ul>
                                         <li>Host elite Ranger School and MQC</li>
                                         <li>Participate in various events</li>
@@ -2060,11 +1865,15 @@
                                         <li>Obtain JFKSWCS badges</li>
                                         <li>Join Task Force Viper</li>
                                     </ul>
+                                </div>
 
-                                    <div class="links">
-                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSed64GCsX2Grtsg2xU44Rvl1wt4scMNg_lYxrbXk9fGx8-mVg/viewform" target="_blank">Apply Now</a>
-                                        <a href="https://docs.google.com/spreadsheets/d/1CmiIpIfru0_6TQ_TfwvKthOPbmmFDhnbkgCTmFBgTFE/edit?gid=312209232#gid=312209232" target="_blank">Application Tracker</a>
-                                    </div>
+                                <div class="links">
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSed64GCsX2Grtsg2xU44Rvl1wt4scMNg_lYxrbXk9fGx8-mVg/viewform" target="_blank" class="application-link">
+                                        <i class="fas fa-file-alt"></i> Apply Now
+                                    </a>
+                                    <a href="https://docs.google.com/spreadsheets/d/1CmiIpIfru0_6TQ_TfwvKthOPbmmFDhnbkgCTmFBgTFE/edit?gid=312209232#gid=312209232" target="_blank" class="application-link">
+                                        <i class="fas fa-clipboard-list"></i> Application Tracker
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -2098,7 +1907,7 @@
             </div>
         </main>
 
-        
+
     </div>
 
     <script>
@@ -2166,9 +1975,9 @@
         const startScreen = document.querySelector('.start-screen');
         const mainContent = document.querySelector('.main-content');
         const enterButton = document.querySelector('.enter-button');
-        const navToggle = document.querySelector('.nav-toggle');
-        const sidebar = document.querySelector('.sidebar');
         const navItems = document.querySelectorAll('.nav-item');
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
         // Optimized tab switching with requestAnimationFrame
         function switchTab(tabId) {
@@ -2198,38 +2007,13 @@
             item.addEventListener('click', (e) => {
                 e.preventDefault();
                 const tabId = item.dataset.tab;
-                
+
                 requestAnimationFrame(() => {
                     navItems.forEach(i => i.classList.remove('active'));
                     item.classList.add('active');
                     switchTab(tabId);
-
-                    if (window.innerWidth <= 768) {
-                        sidebar.classList.remove('active');
-                        navToggle.classList.remove('active');
-                        mainContent.classList.remove('shifted');
-                    }
                 });
             });
-        });
-
-        // Sidebar functionality
-        navToggle.addEventListener('click', () => {
-            requestAnimationFrame(() => {
-                sidebar.classList.toggle('active');
-                navToggle.classList.toggle('active');
-                mainContent.classList.toggle('shifted');
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!sidebar.contains(e.target) && !navToggle.contains(e.target) && sidebar.classList.contains('active')) {
-                requestAnimationFrame(() => {
-                    sidebar.classList.remove('active');
-                    navToggle.classList.remove('active');
-                    mainContent.classList.remove('shifted');
-                });
-            }
         });
 
         // Enter button functionality
@@ -2245,11 +2029,27 @@
             }, 500);
         });
 
+        // Mobile menu toggle
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link on mobile
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+
         // Window resize handler
         const resizeHandler = debounce(() => {
             if (window.innerWidth <= 768) {
                 mainContent.classList.remove('shifted');
-            } else if (sidebar.classList.contains('active')) {
+            } else if (navItems[0].classList.contains('active')) {
                 mainContent.classList.add('shifted');
             }
         }, 250);
@@ -2282,4 +2082,4 @@
         }
     </script>
 </body>
-</html> 
+</html>
