@@ -1437,6 +1437,792 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
         }
+
+        /* Course Grid */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 2.5rem 0;
+            margin: 2.5rem 0;
+            position: relative;
+        }
+
+        .course-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .course-card {
+            background: var(--card-background);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.03) 0%, rgba(255, 215, 0, 0.01) 100%);
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .course-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-card:hover::before {
+            opacity: 1;
+        }
+
+        .course-header {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .course-badge {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.2rem;
+            object-fit: contain;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 12px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .course-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .course-card:hover .course-badge {
+            transform: scale(1.03);
+        }
+
+        .course-card:hover .course-badge::before {
+            opacity: 1;
+        }
+
+        .course-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .course-tag {
+            color: var(--primary-color);
+            background: rgba(255, 215, 0, 0.1);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 0.4rem;
+            font-weight: 600;
+        }
+
+        .course-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .course-content p {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            text-align: justify;
+            position: relative;
+            z-index: 1;
+        }
+
+        .course-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.03) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .requirements {
+            margin-top: 1.8rem;
+            padding: 1.8rem;
+            background: rgba(53, 53, 53, 0.95);
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .requirements::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.03) 50%, transparent 100%);
+        }
+
+        .requirements h5 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .requirements ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .requirements li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .requirements li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+            transform: translateY(-2px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .requirements li span {
+            display: block;
+            margin-left: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .requirements li .category {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .requirements li .detail {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .links {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        .links h5 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(53, 53, 53, 0.95);
+            border: 1px solid var(--border-color);
+            margin-bottom: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 215, 0, 0.1) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .link i {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .link:hover {
+            background: var(--primary-color);
+            color: var(--background-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .link:hover::before {
+            opacity: 1;
+        }
+
+        .link:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Course Card Variants */
+        .course-card.featured {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .course-card.featured::before {
+            background: linear-gradient(45deg, transparent 0%, rgba(255, 215, 0, 0.1) 50%, transparent 100%);
+        }
+
+        .course-card.featured::after {
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.15) 0%, transparent 100%);
+        }
+
+        .course-card.featured .course-content::before {
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%);
+        }
+
+        .course-card.featured .requirements::before {
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%);
+        }
+
+        .course-card.featured .link {
+            background: rgba(53, 53, 53, 0.95);
+            border-color: var(--border-color);
+        }
+
+        .course-card.featured .link:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .course-card.featured:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 18px 50px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Responsive Design for Courses */
+        @media (max-width: 768px) {
+            .course-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .course-badge {
+                width: 100px;
+                height: 100px;
+            }
+
+            .course-card h4 {
+                font-size: 1.4rem;
+            }
+
+            .requirements {
+                padding: 1.5rem;
+            }
+
+            .requirements h5 {
+                font-size: 1.3rem;
+            }
+
+            .requirements li {
+                padding-left: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .link {
+                padding: 0.6rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .course-badge {
+                width: 80px;
+                height: 80px;
+            }
+
+            .course-card h4 {
+                font-size: 1.3rem;
+            }
+
+            .requirements li {
+                padding-left: 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .link {
+                padding: 0.4rem 0.6rem;
+            }
+        }
+
+        .requirements {
+            margin-top: 1.8rem;
+            padding: 1.5rem;
+            background: rgba(53, 53, 53, 0.95);
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .requirements::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.03) 50%, transparent 100%);
+        }
+
+        .requirements h5 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .requirements ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .requirements li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .requirements li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+            transform: translateY(-2px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .requirements li span {
+            display: block;
+            margin-left: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .requirements li .category {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .requirements li .detail {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 215, 0, 0.01) 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ranger-school::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255, 215, 0, 0.03) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .ranger-school:hover::before {
+            opacity: 1;
+        }
+
+        .ranger-school-header {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .ranger-school-badge {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.2rem;
+            object-fit: contain;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 12px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school:hover .ranger-school-badge {
+            transform: scale(1.03);
+        }
+
+        .ranger-school h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-tag {
+            color: var(--primary-color);
+            background: rgba(255, 215, 0, 0.1);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 0.4rem;
+            font-weight: 600;
+        }
+
+        .ranger-school-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .ranger-school-content p {
+            color: var(--text-color);
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            text-align: justify;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-requirements {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(53, 53, 53, 0.95);
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ranger-school-requirements::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.03) 50%, transparent 100%);
+        }
+
+        .ranger-school-requirements h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-requirements ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .ranger-school-requirements li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-requirements li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+            transform: translateY(-2px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-requirements li span {
+            display: block;
+            margin-left: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-requirements li .category {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-requirements li .detail {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-links {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .ranger-school-links h4 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(53, 53, 53, 0.95);
+            border: 1px solid var(--border-color);
+            margin-bottom: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 215, 0, 0.1) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .ranger-school-link i {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ranger-school-link:hover {
+            background: var(--primary-color);
+            color: var(--background-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .ranger-school-link:hover::before {
+            opacity: 1;
+        }
+
+        .ranger-school-link:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ranger-school-badge {
+                width: 100px;
+                height: 100px;
+            }
+
+            .ranger-school h3 {
+                font-size: 1.6rem;
+            }
+
+            .ranger-school-requirements li {
+                padding-left: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .ranger-school-link {
+                padding: 0.6rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ranger-school-badge {
+                width: 80px;
+                height: 80px;
+            }
+
+            .ranger-school h3 {
+                font-size: 1.4rem;
+            }
+
+            .ranger-school-requirements li {
+                padding-left: 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .ranger-school-link {
+                padding: 0.4rem 0.6rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1740,7 +2526,7 @@
                                     <li><span class="rank">O3-O4</span> → Battalion/Brigade Headquarters in their Chain of Command or higher</li>
                                     <li><span class="rank">O5-O6</span> → Regimental/Division Headquarters in their Chain of Command or higher</li>
                                     <li><span class="rank">O7-O8</span> → Command Headquarters in their Chain of Command or higher</li>
-                                    <li><span class="rank">O9-O10</span> → Army Staff or higher</li>
+                                    <li><span class="rank">O9-O10</span> → Army Staff or Higher</li>
                                 </ul>
                             </div>
                         </div>
@@ -1759,7 +2545,9 @@
                         <div class="course-grid">
                             <!-- CDQC -->
                             <div class="course-card military-card">
-                                <img src="https://i.postimg.cc/c1bfd0tL/CDQC.jpg" alt="Combat Diver Badge" class="course-badge">
+                                <div class="course-header">
+                                    <img src="https://i.postimg.cc/c1bfd0tL/CDQC.jpg" alt="Combat Diver Badge" class="course-badge">
+                                </div>
                                 <h4><span class="course-tag">:CDQC:</span> Combat Diver Qualification Course</h4>
                                 <div class="course-content">
                                     <p>The Special Operations Diver Badge is given to those who successfully complete the Combat Diver Qualification Course. Those who complete the rigorous course will be specialized in underwater operations and breaching.</p>
@@ -1781,7 +2569,9 @@
                             
                             <!-- MFFB -->
                             <div class="course-card military-card">
-                                <img src="https://i.postimg.cc/DwqGQGjS/USAF-Occupational-Badge-High-Altitude-Low-Opening-svg.png" alt="Military Freefall Badge" class="course-badge">
+                                <div class="course-header">
+                                    <img src="https://i.postimg.cc/DwqGQGjS/USAF-Occupational-Badge-High-Altitude-Low-Opening-svg.png" alt="Military Freefall Badge" class="course-badge">
+                                </div>
                                 <h4><span class="course-tag">:MFFB:</span> Military Freefall Badge Course</h4>
                                 <div class="course-content">
                                     <p>The military freefall badge is given to those who complete the military freefall course. Those who complete the course will be high-altitude military parachute specialists and will be able to jump from a high altitude with a non-static parachute.</p>
@@ -1789,6 +2579,7 @@
                                         <h5><i class="fas fa-clipboard-check"></i> Requirements</h5>
                                         <ul class="military-list">
                                             <li><span class="highlight">Rank:</span> E4+</li>
+                                            <li><span class="highlight">Service:</span> 2 weeks minimum</li>
                                             <li><span class="highlight">Device:</span> Desktop or mobile</li>
                                             <li><span class="highlight">Unit:</span> Active in airborne division</li>
                                             <li><span class="highlight">Prerequisites:</span> Basic Parachutist Badge</li>
@@ -1804,7 +2595,9 @@
                             
                             <!-- PFB -->
                             <div class="course-card military-card">
-                                <img src="https://i.postimg.cc/43s9W3qB/Pathfinder.gif" alt="Pathfinder Badge" class="course-badge">
+                                <div class="course-header">
+                                    <img src="https://i.postimg.cc/43s9W3qB/Pathfinder.gif" alt="Pathfinder Badge" class="course-badge">
+                                </div>
                                 <h4><span class="course-tag">:PFB:</span> Pathfinder Badge Course</h4>
                                 <div class="course-content">
                                     <p>The pathfinder badge is given to those who complete the pathfinder badge course. Those who complete the course will be responsible for directing airborne operations efficiently.</p>
@@ -1826,7 +2619,9 @@
                             
                             <!-- EFMB -->
                             <div class="course-card military-card">
-                                <img src="https://i.postimg.cc/qRZ6BxR5/Expert-Med-Badge-svg.png" alt="Expert Field Medical Badge" class="course-badge">
+                                <div class="course-header">
+                                    <img src="https://i.postimg.cc/qRZ6BxR5/Expert-Med-Badge-svg.png" alt="Expert Field Medical Badge" class="course-badge">
+                                </div>
                                 <h4><span class="course-tag">:EFMB:</span> Expert Field Medical Badge Course</h4>
                                 <div class="course-content">
                                     <p>The Expert Field Medical Badge is given to those who successfully complete the Expert Field Medical Badge Course. Those who complete the course will be specialized in medical knowledge that will assist them throughout their career.</p>
@@ -1847,7 +2642,9 @@
                             
                             <!-- EIB -->
                             <div class="course-card military-card">
-                                <img src="https://i.postimg.cc/xCdbS40m/us-army-expert-infantry-badge-nickel-finish-1124-expinf-nick-4.webp" alt="Expert Infantry Badge" class="course-badge">
+                                <div class="course-header">
+                                    <img src="https://i.postimg.cc/xCdbS40m/us-army-expert-infantry-badge-nickel-finish-1124-expinf-nick-4.webp" alt="Expert Infantry Badge" class="course-badge">
+                                </div>
                                 <h4><span class="course-tag">:EIBQC:</span> Expert Infantryman Badge Qualification Course</h4>
                                 <div class="course-content">
                                     <p>The Expert Infantryman Badge Qualification Course is a course in which your skills as an infantryman will be harshly tested. Those who complete this course will receive the Expert Infantryman Qualification, which proves their exceptional skills in combat and land navigation, among other things.</p>
@@ -1868,7 +2665,9 @@
                             
                             <!-- MQC -->
                             <div class="course-card military-card">
-                                <img src="https://i.postimg.cc/fTdSZXh8/United-States-Army-Marksmanship-Qualification-Badges.png" alt="Marksmanship Badges" class="course-badge">
+                                <div class="course-header">
+                                    <img src="https://i.postimg.cc/fTdSZXh8/United-States-Army-Marksmanship-Qualification-Badges.png" alt="Marksmanship Badges" class="course-badge">
+                                </div>
                                 <h4><span class="course-tag">:Sharpshooter:</span> Marksmanship Qualification Course</h4>
                                 <div class="course-content">
                                     <p>The Marksmanship Qualification Course has a 2 badge device which is the Expert badge and the Sharpshooter badge. It is given to those who successfully complete the Marksmanship Qualification Course with the required points. Those who complete the course will receive the Sharpshooter or the Expert badge.</p>
