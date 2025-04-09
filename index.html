@@ -484,17 +484,17 @@
             }
 
             .start-screen h1 {
-                font-size: 3rem;
+                font-size: 2rem;
             }
 
             .start-screen .subtitle {
-                font-size: 1.8rem;
-                margin-bottom: 3rem;
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
             }
 
             .enter-button {
-                padding: 1rem 2.5rem;
-                font-size: 1.2rem;
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
             }
 
             .content h3 {
@@ -662,6 +662,32 @@
             tab-button {
                 padding: 0.6rem 1rem;
                 font-size: 0.9rem;
+            }
+        }
+
+        /* Start Screen Titles - Extra Small for Mobile */
+        .start-screen h1 {
+            font-size: clamp(1.5rem, 6vw, 3rem);
+            margin-bottom: 0.3rem;
+            line-height: 1.1;
+        }
+
+        .start-screen .subtitle {
+            font-size: clamp(0.9rem, 4vw, 1.8rem);
+            margin-bottom: 0.3rem;
+        }
+
+        .start-screen h3 {
+            font-size: clamp(0.8rem, 3.5vw, 1.5rem);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            .start-screen h1 {
+                letter-spacing: 1px;
+            }
+            .start-screen .subtitle {
+                letter-spacing: 0.5px;
             }
         }
 
@@ -1024,11 +1050,10 @@
         }
 
         .start-screen h1 {
-            font-size: 4.5rem;
-            color: white;
+            font-size: clamp(1.8rem, 8vw, 4.5rem);
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
             text-align: center;
-            margin-bottom: 2rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             letter-spacing: 3px;
             font-weight: 800;
@@ -1036,13 +1061,30 @@
         }
 
         .start-screen .subtitle {
-            font-size: 2.5rem;
-            color: #ffd700;
+            font-size: clamp(1rem, 5vw, 2.5rem);
+            margin-bottom: 0.5rem;
             text-align: center;
-            margin-bottom: 4rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             letter-spacing: 2px;
             animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .start-screen h3 {
+            font-size: clamp(0.9rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .start-screen h1 {
+                line-height: 1.1;
+                margin-bottom: 0.3rem;
+            }
+            .start-screen .subtitle {
+                margin-bottom: 0.3rem;
+            }
+            .start-screen h3 {
+                margin-bottom: 1rem;
+            }
         }
 
         .enter-button {
@@ -1534,7 +1576,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
+            background: linear-gradient(45deg, transparent 0%, rgba(255, 215, 0, 0.03) 50%, transparent 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -2548,7 +2590,7 @@
                                 <div class="course-header">
                                     <img src="https://i.postimg.cc/c1bfd0tL/CDQC.jpg" alt="Combat Diver Badge" class="course-badge">
                                 </div>
-                                <h4><span class="course-tag">:CDQC:</span> Combat Diver Qualification Course</h4>
+                                <h4>Combat Diver Qualification Course</h4>
                                 <div class="course-content">
                                     <p>The Special Operations Diver Badge is given to those who successfully complete the Combat Diver Qualification Course. Those who complete the rigorous course will be specialized in underwater operations and breaching.</p>
                                     <div class="requirements">
@@ -2572,7 +2614,7 @@
                                 <div class="course-header">
                                     <img src="https://i.postimg.cc/DwqGQGjS/USAF-Occupational-Badge-High-Altitude-Low-Opening-svg.png" alt="Military Freefall Badge" class="course-badge">
                                 </div>
-                                <h4><span class="course-tag">:MFFB:</span> Military Freefall Badge Course</h4>
+                                <h4> Military Freefall Badge Course</h4>
                                 <div class="course-content">
                                     <p>The military freefall badge is given to those who complete the military freefall course. Those who complete the course will be high-altitude military parachute specialists and will be able to jump from a high altitude with a non-static parachute.</p>
                                     <div class="requirements">
@@ -2598,7 +2640,7 @@
                                 <div class="course-header">
                                     <img src="https://i.postimg.cc/43s9W3qB/Pathfinder.gif" alt="Pathfinder Badge" class="course-badge">
                                 </div>
-                                <h4><span class="course-tag">:PFB:</span> Pathfinder Badge Course</h4>
+                                <h4> Pathfinder Badge Course</h4>
                                 <div class="course-content">
                                     <p>The pathfinder badge is given to those who complete the pathfinder badge course. Those who complete the course will be responsible for directing airborne operations efficiently.</p>
                                     <div class="requirements">
@@ -2622,7 +2664,7 @@
                                 <div class="course-header">
                                     <img src="https://i.postimg.cc/qRZ6BxR5/Expert-Med-Badge-svg.png" alt="Expert Field Medical Badge" class="course-badge">
                                 </div>
-                                <h4><span class="course-tag">:EFMB:</span> Expert Field Medical Badge Course</h4>
+                                <h4>Expert Field Medical Badge Course</h4>
                                 <div class="course-content">
                                     <p>The Expert Field Medical Badge is given to those who successfully complete the Expert Field Medical Badge Course. Those who complete the course will be specialized in medical knowledge that will assist them throughout their career.</p>
                                     <div class="requirements">
@@ -2645,7 +2687,7 @@
                                 <div class="course-header">
                                     <img src="https://i.postimg.cc/xCdbS40m/us-army-expert-infantry-badge-nickel-finish-1124-expinf-nick-4.webp" alt="Expert Infantry Badge" class="course-badge">
                                 </div>
-                                <h4><span class="course-tag">:EIBQC:</span> Expert Infantryman Badge Qualification Course</h4>
+                                <h4>Expert Infantryman Badge Qualification Course</h4>
                                 <div class="course-content">
                                     <p>The Expert Infantryman Badge Qualification Course is a course in which your skills as an infantryman will be harshly tested. Those who complete this course will receive the Expert Infantryman Qualification, which proves their exceptional skills in combat and land navigation, among other things.</p>
                                     <div class="requirements">
@@ -2668,7 +2710,7 @@
                                 <div class="course-header">
                                     <img src="https://i.postimg.cc/fTdSZXh8/United-States-Army-Marksmanship-Qualification-Badges.png" alt="Marksmanship Badges" class="course-badge">
                                 </div>
-                                <h4><span class="course-tag">:Sharpshooter:</span> Marksmanship Qualification Course</h4>
+                                <h4>Marksmanship Qualification Course</h4>
                                 <div class="course-content">
                                     <p>The Marksmanship Qualification Course has a 2 badge device which is the Expert badge and the Sharpshooter badge. It is given to those who successfully complete the Marksmanship Qualification Course with the required points. Those who complete the course will receive the Sharpshooter or the Expert badge.</p>
                                     <div class="requirements">
