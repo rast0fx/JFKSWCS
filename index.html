@@ -1392,11 +1392,11 @@
             }
         }
 
-        /* Fix for iOS Safari bottom bar */
-        @supports (-webkit-touch-callout: none) {
-            .main-content {
-                padding-bottom: env(safe-area-inset-bottom, 20px);
-            }
+        /* Fix for iOS input styling */
+        input, 
+        button {
+            -webkit-appearance: none;
+            border-radius: 8px;
         }
 
         /* Navbar */
@@ -2272,7 +2272,7 @@
     <div class="start-screen">
         <h1> Army Special Operations Command </h1>
         <div class="subtitle">John F. Kennedy Special Warfare Center and School</div>
-<h2> <b> <i> <font color=cyan> "Veritas et Libertas" </i> </b></h2>
+<h3> <b> <i> <font color=cyan> "Veritas et Libertas" </i> </b></h3>
 
         <button class="enter-button">Enter Website</button>
         <div class="contact-section" style="margin-top: 3rem; text-align: center;">
@@ -2353,17 +2353,12 @@
                             <li>
                                 <span class="position">Command Sergeant Major</span>
                                 <span class="rank">[CSM]</span>
-                                <span class="name"><a href="http://discord.com/users/1088604306523033691"><font color=cyan></font>Command Sergeant Major, Nero0vuh</a></span>
+                                <span class="name"><a href="http://discord.com/users/564595464897560577"><font color=cyan></font>Command Sergeant Major, AliveMessi102</a></span>
                             </li>
                             <li>
                                 <span class="position">Chief of Staff</span>
                                 <span class="rank">[CoS]</span>
-                                <span class="name"><a href="http://discord.com/users/"><font color=cyan></font>Major General, VACANT</a></span>
-                            </li>
-                             <li>
-                                <span class="position">Chief of Staff</span>
-                                <span class="rank">[CoS]</span>
-                                <span class="name"><a href="http://discord.com/users/1268664763840331808"><font color=cyan></font>Brigadier General, MichaelMightBite </a></span>
+                                <span class="name"><a href="http://discord.com/users/1088604306523033691"><font color=cyan></font>Major General, NeroOvuh</a></span>
                             </li>
                         </ul>
                     </div>
@@ -2385,7 +2380,7 @@
                             <li>
                                 <span class="position">Command Sergeant Major</span>
                                 <span class="rank">[CSM]</span>
-                                <span class="name"><a href="http://discord.com/users/857802536654995468"><font color=cyan>Command Sergeant Major, inflixction</a></span>
+                                <span class="name"><a href="http://discord.com/users/857802536654995468"><font color=cyan>Command Sergeant Major, infliction</a></span>
                             </li>
                         </ul>
                     </div>
@@ -2414,8 +2409,7 @@
                                     </li>
                                 </ul>
                             </div>
-
-                           
+                        </div>
 
                         <!-- 2nd SWTG Group -->
                         <div class="group-container">
@@ -2435,12 +2429,13 @@
                                     <li>
                                         <span class="position">Group Sergeant Major</span>
                                         <span class="rank">[2SWTG-SM]</span>
-                                        <span class="name"><a href="http://discord.com/users/835186381528760350"><font color=cyan>Sergeant Major, iamthatman007</a></span>
+                                        <span class="name"><a href="http://discord.com/users/795822094495121419"><font color=cyan>Sergeant Major, cubster2323</a></span>
                                     </li>
                                 </ul>
                             </div>
-
-              
+                        </div>
+                    </div>
+                </div>
 
                 <!-- New Courses Tab -->
                 <div id="courses" class="tab-content">
@@ -2511,8 +2506,8 @@
                                         <ul class="military-list">
                                             <li><span class="highlight">Rank:</span> E5+</li>
                                             <li><span class="highlight">Device:</span> Desktop only (no mobile)</li>
-                                            <li><span class="highlight">Service:</span> 1 month minimum</li>
                                             <li><span class="highlight">Equipment:</span> Working microphone</li>
+                                            <li><span class="highlight">Service:</span> 1 month minimum</li>
                                             <li><span class="highlight">Units:</span> JFKSWCS, TF-121, ASF, 75th, SOAR, 42nd, 1ID, 82nd, 101st Bastogne</li>
                                             <li><span class="highlight">Record:</span> Clean 1 month</li>
                                             <li><span class="highlight">Recommendation:</span> Direct superior</li>
@@ -2785,21 +2780,25 @@
                         <img src="https://i.postimg.cc/nrPdH7cZ/1.webp" alt="1st SWTG Image" style="width: 100%; max-width: 800px; height: auto; margin: 0 auto 2rem; display: block; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                         <p>The 1st Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 1st Special Warfare Training Group handles some rudimentary US Army courses. this includes the Military Freefall Course, Pathfinder Badge Course, and the Expert Infantry Badge Qualification Course. The 1st Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
 
-
-
                         <div class="command-section">
-                            <h3>1st SWTG Companies</h3>
-                            <div class="companies">
-                                <div class="company">
-                                    <h4>Artemis Company</h4>
-                                    <p>The Artemis Company is responsible for the divisions Airborne Courses, such as the Military FreeFall Course and Pathfinder Badge Course. These courses are categorical to host and are one of the few courses that John F. Kennedy Special Warfare Center and School Personnel can take.</p>
-                                </div>
-
-                                <div class="company">
-                                    <h4>Spartan Company</h4>
-                                    <p>The Spartan Company is responsible for John F. Kennedy Special Warfare Center and School's expert courses, these courses are meticulously supervised. The company itself is due to its nature in hosting expert courses such as the Expert Infantryman Course.</p>
-                                </div>
-                            </div>
+                            <h3>1st SWTG Command Structure</h3>
+                            <ul class="command-list">
+                                <li>
+                                    <span class="position">Group Commanding Officer</span>
+                                    <span class="rank">[SWTG-CO]</span>
+                                    <span class="name"><a href=""><font color=cyan>Colonel, PureRelief</a></span>
+                                </li>
+                                <li>
+                                    <span class="position">Group Executive Officer</span>
+                                    <span class="rank">[SWTG-XO]</span>
+                                    <span class="name"><a href="http://discord.com/users/733281578263773184"><font color=cyan>Lieutenant Colonel, gabriel47494</a></span>
+                                </li>
+                                <li>
+                                    <span class="position">Group Sergeant Major</span>
+                                    <span class="rank">[SWTG-SM]</span>
+                                    <span class="name"><a href="http://discord.com/users/954061819952132106"><font color=cyan>Sergeant Major, rast0fx</a></span>
+                                </li>
+                            </ul>
                         </div>
 
                         <div class="command-section">
@@ -2838,10 +2837,7 @@
 
                                 <div class="links">
                                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSegaZ8AjG40fPLMzztm1vY5mB4_9GHek5LIJt3LOwZBWkrynQ/viewform" target="_blank" class="application-link">
-                                        Apply to Artemis
-                                    </a>
-                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeA9cR_hYuZAyXIwdcjJ8596Lir2BmQApacT2N4sG9vvOgbKQ/viewform" target="_blank" class="application-link">
-                                        Apply to Spartan
+                                        Apply to 1st SWTG
                                     </a>
                                     <a href="https://docs.google.com/spreadsheets/d/1CmiIpIfru0_6TQ_TfwvKthOPbmmFDhnbkgCTmFBgTFE/edit?usp=sharing" target="_blank" class="application-link">
                                         Application Tracker
@@ -2859,18 +2855,24 @@
                         <p>The 2nd Special Warfare Training Group is one of 2 primary groups within the John F. Kennedy Special Warfare Center and School. The 2nd Special Warfare Training Group handles some of the most rigorous courses within the United States Army, such as the Ranger School Course, which offers those who pass the renowned Ranger Tab and the Marksman Qualification Course. The 2nd Special Warfare Training Group contains one of the most disciplined, mature, and well-balanced instructors in the US Army. These instructors have great airborne skills, air traffic control skills, and many more.</p>
 
                         <div class="command-section">
-                            <h3>2nd SWTG Companies</h3>
-                            <div class="companies">
-                                <div class="company">
-                                    <h4>Trojan Company</h4>
-                                    <p>The Trojan Company is John F. Kennedy Special Warfare Center and School's sole recruitment company, tasked with recruitment and keeping retention in JFKSWCS. Trojan is also responsible for being there for Companies or Groups that are in need of help. While Trojan handles recruitment; it also is allowed to host the Military FreeFall Course of 1st Special Warfare Training Group.</p>
-                                </div>
-
-                                <div class="company">
-                                    <h4>Cyrus Company</h4>
-                                    <p>The Cyrus Company is one of John F. Kennedy Special Warfare Center and School's leadership companies. Due to its nature of being able to host the divisions strict qualification courses, such as the Special Operations Diver Qualification Course, also known as Combat Diver Qualification Course. Cyrus Company also hosts JFKSWCS's Ranger School, which is one of the division's most strict course.</p>
-                                </div>
-                            </div>
+                            <h3>2nd SWTG Command Structure</h3>
+                            <ul class="command-list">
+                                <li>
+                                    <span class="position">Group Commanding Officer</span>
+                                    <span class="rank">[2SWTG-CO]</span>
+                                    <span class="name"><a href="http://discord.com/users/419486917000822786"><font color=cyan>Colonel, ZachW285</a></span>
+                                </li>
+                                <li>
+                                    <span class="position">Group Executive Officer</span>
+                                    <span class="rank">[2SWTG-XO]</span>
+                                    <span class="name"><a href="http://discord.com/users/1113548445081419907"><font color=cyan>Lieutenant Colonel, AstraeaXV</a></span>
+                                </li>
+                                <li>
+                                    <span class="position">Group Sergeant Major</span>
+                                    <span class="rank">[2SWTG-SM]</span>
+                                    <span class="name"><a href="http://discord.com/users/795822094495121419"><font color=cyan>Sergeant Major, cubster2323</a></span>
+                                </li>
+                            </ul>
                         </div>
 
                         <div class="command-section">
@@ -2905,10 +2907,7 @@
 
                                 <div class="links">
                                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSed64GCsX2Grtsg2xU44Rvl1wt4scMNg_lYxrbXk9fGx8-mVg/viewform" target="_blank" class="application-link">
-                                        <i class="fas fa-file-alt"></i> Apply to Cyrus
-                                    </a>
-                                    <a href="https://forms.gle/8uSjMHKm77egr6N68" target="_blank" class="application-link">
-                                        <i class="fas fa-file-alt"></i> Apply to Trojan
+                                        <i class="fas fa-file-alt"></i> Apply to 2nd SWTG
                                     </a>
                                     <a href="https://docs.google.com/spreadsheets/d/1CmiIpIfru0_6TQ_TfwvKthOPbmmFDhnbkgCTmFBgTFE/edit?gid=312209232#gid=312209232" target="_blank" class="application-link">
                                         <i class="fas fa-clipboard-list"></i> Application Tracker
